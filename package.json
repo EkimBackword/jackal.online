@@ -1,0 +1,37 @@
+{
+  "name": "jackal.online",
+  "version": "0.0.1",
+  "description": "online-version for boardgame.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --progress --colors --watch",
+    "server": "webpack-dev-server --quiet --port 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EkimBackword/jackal.online.git"
+  },
+  "author": "Mikhail Zharkov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EkimBackword/jackal.online/issues"
+  },
+  "homepage": "https://github.com/EkimBackword/jackal.online#readme",
+  "dependencies": {
+    "@types/fbemitter": "^2.0.32",
+    "@types/react": "^15.0.4",
+    "@types/react-dom": "^0.14.21",
+    "fbemitter": "^2.1.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.0.0-beta.18",
+    "react-hot-loader": "^1.3.1",
+    "source-map-loader": "^0.1.6",
+    "typescript": "^2.1.5",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}

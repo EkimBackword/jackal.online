@@ -1,0 +1,30 @@
+.map {
+    border-left: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.map__element {
+    height: 50px;
+    width: 50px;
+    margin: 1px
+}
+.map__element-sea {
+    background-color: cornflowerblue;
+}
+.map__element-land {
+    background-color: limegreen;
+}
+
+.ship {
+    height: 45px;
+    width: 45px;
+    border-radius: 8px;
+    background-color: black;
+}
+
+
+
+
+
+.menu {
+    padding: 2px 8px;
+}
