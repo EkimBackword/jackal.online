@@ -1,16 +1,32 @@
-
 export class itemModel {
-    constructor() {}
+    constructor() {
+        this.items = [];
+    }
+
+    name: string;
+    items: any[];
+
+    tileType: string;
 
     actionWhenOpened: Function;
     actionEverytime: Function;
 
-    items: any[];
-
     countMoney: number;
+    currentStep: number;
+    countOfStep: number;
+
+    isHorse: boolean;
+    isOpened: boolean; 
+    isBlocked: boolean;
+    mayByAttack: boolean;
+
+    arrow: string[];
+
 }
 
 export interface iPirate {
+    name: string;
+    
     ourColor: string;
     friendColor: string;
     ourShip: iShip;
@@ -18,7 +34,12 @@ export interface iPirate {
 }
 
 export interface iShip {
-    address: number;
+    name: string;
+
+    pirates: iPirate[];
+    canMove: boolean;
+
+    address: string;
     ourColor: string;
     friendColor: string;
 }

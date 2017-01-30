@@ -1,49 +1,39 @@
 import * as React from "react";
+import {iPirate, iShip, itemModel} from '../modals/item';
+import {seaTile, StandartGameTileCount, TEAM} from "../modals/consts";
+import { MapService } from './map.service';
+import { MapItem } from './map-item/map-item';
 
 export interface IProps { }
 
 export default class Map extends React.Component<IProps, any> {
+    mapService: MapService;
+    rows: any[]; 
+
+    constructor(props: IProps) {
+        super(props);
+        this.mapService = new MapService();
+        this.generateMap();
+    }
+
+    generateMap(isOld: boolean = true) {
+        this.rows = this.mapService.genStandartMap();
+    }
+
     render() {
-        let rows = [];
-
-        for(let j=0; j < 13; j++) {
-            let column = [];
-            for(let i=0; i < 13; i++) {
-                let sea = 'layout-column layout-align-center-center map__element';
-                let index = i + j * 12;
-                if(j == 0 || j == 12 || i == 0 || i == 12 ||
-                    index == 13 || index == 23 || index == 133 || index == 143
-                ) {
-                    sea += " map__element-sea";
-                } else {
-                    sea += " map__element-land";
-                }
-                let ship;
-                if( 
-                    (i == 6 && ( j == 0 || j == 12)) || 
-                    (j == 6 && ( i == 0 || i == 12))
-                ) {
-                    ship = <div className="ship"></div>;
-                }
-
-                column.push(
-                    <div className={sea} key={index}>
-                        {ship}
-                    </div>
-                )
-            }
-            rows.push(column);
-        }
-
         return (
             <div className="map layout-fill layout-column layout-align-center-center flex-75">
                 {
-                    rows.map((i) => {
+                    this.rows.map((i, ind) => {
                         return (
-                            <div className="layout-row">
+                            <div key={ind} className="layout-row">
                                 {
-                                    i.map((item) => {
-                                        return item;
+                                    i.map((item: itemModel, index: number) => {
+                                        return (
+                                            <div key={index} className="layout-column layout-align-center-center map__element">
+                                                <MapItem  item={item} />
+                                            </div>
+                                        );
                                     })
                                 }
                             </div>
