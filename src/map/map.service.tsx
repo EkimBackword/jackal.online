@@ -1,9 +1,9 @@
 import {iPirate, iShip, itemModel} from '../modals/item';
-import {seaTile, StandartGameTileCount, TEAM} from "../modals/consts"
+import {seaTile, StandartGameTileCount, AdditionGameTileCount, TEAM} from "../modals/consts"
 
 export class MapService {
-    constructor() {}
-
+    constructor() {};
+    
     getRandomInt(min: number, max: number) {
         return Math.floor(Math.random() * (max - min)) + min;
     }
@@ -15,16 +15,21 @@ export class MapService {
         return keys[index];
     }
 
-    genStandartMap(): any[] {
+    genMap(isStandart: boolean): any[] {
         let rows = [];
-        let counterTile = StandartGameTileCount;
+        let counterTile = isStandart ? StandartGameTileCount : AdditionGameTileCount;
         let seaCounter = seaTile;
 
+
         for(let j=0; j < 13; j++) {
+            // console.log(StandartGameTileCount);
             let items = [];
 
             for(let i=0; i < 13; i++) {
                 let currentTile = new itemModel();
+                currentTile.row = j;
+                currentTile.index = i;
+
                 let index = i + j * 12;
                 if(j == 0 || j == 12 || i == 0 || i == 12 ||
                     index == 13 || index == 23 || index == 133 || index == 143
@@ -32,6 +37,10 @@ export class MapService {
                     currentTile.name = "sea";
                 } else {
                     currentTile.name = this.getRandomTileName(counterTile);
+                    if(currentTile.name.indexOf("coin") === 0) {
+                        let count = parseInt(currentTile.name.split('-')[1]);
+                        currentTile.countCoint = count;
+                    }
                 }
                 if( 
                     (i == 6 && ( j == 0 || j == 12)) || 
@@ -40,14 +49,29 @@ export class MapService {
                     let ship: iShip = {
                         name: "ship",
                         address: `${i}_${j}`,
+
                         canMove: true,
                         ourColor: null,
+                        friendColor: null,
+
                         pirates: [] as iPirate[],
-                        friendColor: null
+                        countCoint: 0
                     }
                     ship.ourColor = ship.address == "6_0" ? TEAM.black :
                         ship.address == "0_6" ? TEAM.red :
                         ship.address == "12_6" ? TEAM.white : TEAM.yellow;
+
+                    let pirate: iPirate = {
+                        name: "pirate",
+                        currentStep: 0,
+                        friendColor: ship.friendColor,
+                        ourColor: ship.ourColor
+                    };
+                    
+                    ship.pirates.push(pirate);
+                    ship.pirates.push(pirate);
+                    ship.pirates.push(pirate);
+                    
                     currentTile.items.push(ship);
                 }
 
@@ -55,12 +79,7 @@ export class MapService {
             }
             rows.push(items);
         }
-        console.log(counterTile);
+        // console.log(counterTile);
         return rows;
     }
-
-    genAdditionMap() {
-
-    }
-
 }

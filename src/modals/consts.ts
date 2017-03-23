@@ -41,9 +41,9 @@ export const AdditionGameTileCount = {
     "heal-fort": 1,
     "coins-1": 5, "coins-2": 5, "coins-3": 3, "coins-4": 2, "coins-5": 1,
     
-    "gold-box": 1,
+    "treasure": 1,
     "airplane": 1,
-    "karramba": 1,
+    "caramba": 1,
 
     "aerostat": 2,
     "cannon": 2,

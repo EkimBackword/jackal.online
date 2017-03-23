@@ -1,32 +1,9 @@
-.map {
-    border-left: 2px solid rgba(0, 0, 0, 0.2);
-}
+@import './menu.css';
+@import './map.css';
+@import './button.css';
 
-.map__element {
-    height: 50px;
-    width: 50px;
-    margin: 0.5px;
-    border-radius: 3px;
-}
-.map__element-sea {
-    background-color: cornflowerblue;
-}
-.map__element-land {
-    background-color: limegreen;
-}
-
-.ship {
-    height: 45px;
-    width: 45px;
-    border-radius: 8px;
-}
-
-
-
-
-
-.menu {
-    padding: 2px 8px;
+html {
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 /* весь контейнер поддерживает перспективу */
@@ -37,13 +14,11 @@
 	.flip-container.flip .flipper {
 		transform: rotateY(180deg);
 	}
-
 .flip-container, .front, .back {
     height: 50px;
     width: 50px;
     border-radius: 3px;
 }
-
 /* здесь находится скорость перевертывания */
 .flipper {
 	transition: 0.6s;
@@ -51,7 +26,6 @@
 
 	position: relative;
 }
-
 /* скройте обратную сторону во время переворота */
 .front, .back {
 	backface-visibility: hidden;
@@ -60,14 +34,12 @@
 	top: 0;
 	left: 0;
 }
-
 /* лицевая сторона размещена над обратной */
 .front {
 	z-index: 2;
     background-size: cover;
     background-color: brown;
 }
-
 /* обратная, изначально скрытая сторона */
 .back {
 	transform: rotateY(180deg);

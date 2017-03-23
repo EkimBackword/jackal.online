@@ -1,7 +1,11 @@
 export class itemModel {
     constructor() {
         this.items = [];
+        this.active = false;
     }
+
+    row: number;
+    index: number;
 
     name: string;
     items: any[];
@@ -11,8 +15,7 @@ export class itemModel {
     actionWhenOpened: Function;
     actionEverytime: Function;
 
-    countMoney: number;
-    currentStep: number;
+    countCoint: number;
     countOfStep: number;
 
     isHorse: boolean;
@@ -22,6 +25,7 @@ export class itemModel {
 
     arrow: string[];
 
+    active: boolean;
 }
 
 export interface iPirate {
@@ -29,17 +33,24 @@ export interface iPirate {
     
     ourColor: string;
     friendColor: string;
-    ourShip: iShip;
-    friendShip: iShip;
+    currentStep: number;
 }
 
 export interface iShip {
     name: string;
 
     pirates: iPirate[];
-    canMove: boolean;
+    countCoint: number;
 
+    canMove: boolean;
+    
     address: string;
+    
     ourColor: string;
     friendColor: string;
+}
+
+export interface iCointes {
+    name: string;
+    count: number;  
 }
