@@ -1,0 +1,43 @@
+@import '../node_modules/open-color/open-color.css';
+
+.menu {
+    padding: 2px 8px;
+    background-color: var(--oc-teal-9);
+}
+.text-0 {
+    color: var(--oc-teal-0);
+}
+.text-1 {
+    color: var(--oc-teal-1);
+}
+.text-2 {
+    color: var(--oc-teal-2);
+}
+.text-3 {
+    color: var(--oc-teal-3);
+}
+.menu__status {
+    height: 150px;
+    margin: 16px 0;
+}
+.menu__team {
+    padding: 2px 8px;
+    width: 50%;
+    text-align: center;
+}
+.menu__team-red {
+    background-color: var(--oc-red-4);
+    color: var(--oc-gray-8);
+}
+.menu__team-white {
+    background-color: var(--oc-gray-1);
+    color: var(--oc-gray-8);
+}
+.menu__team-black {
+    background-color: var(--oc-gray-8);
+    color: var(--oc-gray-1);
+}
+.menu__team-yellow {
+    background-color: var(--oc-yellow-4);
+    color: var(--oc-gray-8);
+}

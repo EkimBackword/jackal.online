@@ -1,0 +1,61 @@
+@import '../node_modules/open-color/open-color.css';
+
+.map {
+    background-color: var(--oc-teal-0);
+}
+.map__element {
+    height: 50px;
+    width: 50px;
+    margin: 0.5px;
+    border-radius: 3px;
+    cursor: pointer;
+    user-select: none;
+}
+.map__element--active {
+    border: 2px solid var(--oc-yellow-4);
+}
+.map__element-sea {
+    background-color: var(--oc-indigo-4);
+}
+.map__element-land {
+    background-color: var(--oc-teal-4);
+}
+
+.ship {
+    height: 45px;
+    width: 45px;
+    border-radius: 8px;
+    padding: 2px;
+    background-color: rgba(255, 255, 255, 0.2)
+}
+
+.pirates {
+    height: 33%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.pirates--red {
+    background-color: rgba(200, 50, 50, 0.45);
+    color: white;
+}
+.pirates--white {
+    background-color: rgba(250, 250, 250, 0.45);
+    color: black;
+}
+.pirates--black {
+    background-color: rgba(0, 0, 0, 0.45);
+    color: white;
+}
+.pirates--yellow {
+    background-color: rgba(200, 200, 0, 0.45);
+    color: black;
+}
+
+.coints {
+    background: gold;
+    color: black;
+    font-weight: bolder;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 50px;
+    border: 2px solid black;
+}
